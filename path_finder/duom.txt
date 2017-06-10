@@ -1,0 +1,8 @@
+Vilnius Kaunas 100
+Vilnius Panevezys 80
+Panevezys Kaunas 60
+Panevezys Klaipeda 30
+Siauliai Kaunas 40
+Vilnius Utena 80
+A B 50
+B C 20

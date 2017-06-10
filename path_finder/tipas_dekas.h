@@ -1,0 +1,4 @@
+#ifndef TIPAS_DEKAS_H_INCLUDED
+#define TIPAS_DEKAS_H_INCLUDED
+typedef int TIPAS;
+#endif // TIPAS_H_INCLUDED
