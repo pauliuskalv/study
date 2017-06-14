@@ -1,2 +1,2 @@
 # study
-Projects that are left over from my software engineering course
+Projects that are left over from my Software Engineering course
