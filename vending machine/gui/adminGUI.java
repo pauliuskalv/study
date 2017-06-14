@@ -183,8 +183,14 @@ public class adminGUI implements Runnable {
         preferrences_change_password.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 String laik = JOptionPane.showInputDialog ( "Įveskite esamą slaptažodį:" ) ;
+
+                if ( laik == null || laik.length() == 0 ) return ;
+
                 if ( laik.equals ( main_server.getPassword( ) ) ) {
                     laik = JOptionPane.showInputDialog ( "Įveskite naują slaptažodį:" ) ;
+
+                    if ( laik == null ) return ;
+
                     if ( laik.equals ( "" ) ) {
                         JOptionPane.showMessageDialog ( null , "Slaptažodžio laukas tuščias!" ,
                                 "" , JOptionPane.ERROR_MESSAGE ) ;
@@ -204,9 +210,16 @@ public class adminGUI implements Runnable {
         preferrences_new_server.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 String laik = JOptionPane.showInputDialog ( "Įveskite esamą slaptažodį:" ) ;
+
+                if ( laik == null ) return ;
+
                 if ( laik.equals ( main_server.getPassword( ) ) ) {
-                    int kiekis = Integer.parseInt (
-                            JOptionPane.showInputDialog ( "Įveskite naujos talpyklos dydį:" ) ) ;
+                    String temp = null ;
+                    temp = JOptionPane.showInputDialog ( "Įveskite naujos talpyklos dydį:" ) ;
+
+                    if ( temp == null || temp.length() == 0 ) return ;
+
+                    int kiekis = Integer.parseInt ( temp ) ;
                     if ( kiekis == 0 ) {
                         JOptionPane.showMessageDialog ( null , "Talpyklos dydis negali būti 0!" ,
                                 "" , JOptionPane.ERROR_MESSAGE ) ;

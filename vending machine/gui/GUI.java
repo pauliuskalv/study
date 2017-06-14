@@ -105,11 +105,32 @@ public class GUI {
         File failas = new File ( System.getProperty ( "user.dir" ) + "/backup/server.ser" ) ;
         if ( ! failas.exists ( ) ) {
             JOptionPane laik = new JOptionPane ( ) ;
-            serveris = new server ( Integer.parseInt ( laik.showInputDialog
-                    ( "Iveskite naujos talpyklos dydi:") ) ) ;
+            String temp = null ;
+            temp = laik.showInputDialog ( "Iveskite naujos talpyklos dydi:" ) ;
+            if ( temp == null ) {
+                System.exit ( 0 ) ;
+            }
+            if ( temp.length() == 0 ) {
+                laik.showMessageDialog ( null , "Negalima testi darbo. Susisiekite su" +
+                        " administratoriumi!" , "" , JOptionPane.ERROR_MESSAGE ) ;
+                System.exit ( 0 ) ;
+            }
+            try {
+                Integer.parseInt ( temp ) ;
+            } catch ( NumberFormatException e ) {
+                laik.showMessageDialog ( null , "Ivestas ne skaičius! Susisiekite su" +
+                        " administratoriumi" , "" , JOptionPane.ERROR_MESSAGE ) ;
+                System.exit ( 0 ) ;
+            }
+            serveris = new server ( Integer.parseInt( temp  ) ) ;
             String pass_temp = null ;
             while ( true ) {
                 pass_temp = JOptionPane.showInputDialog ( "Iveskite naują administratoriaus slaptažodį:" ) ;
+
+                if ( pass_temp == null ) {
+                    System.exit ( 0 ) ;
+                }
+
                 if ( pass_temp.equals ( "" ) ) {
                     JOptionPane.showMessageDialog ( null , "Reikia įvesti slaptažodį!" ,
                             "" , JOptionPane.ERROR_MESSAGE ) ;
